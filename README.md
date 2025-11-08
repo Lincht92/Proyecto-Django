@@ -42,25 +42,25 @@ Aplicación web desarrollada con el framework **Django**, que permite:
 Sigua estos pasos para ejecutar el proyecto en su computadora:
 
 1. Clonar el repositorio desde GitHub.
-    (O descargar el ZIP y extraerlo)
+>(O descargar el ZIP y extraerlo)
 
 2. Abrir la carpeta del proyecto en VS Code.
 
 3. Crear un entorno virtual (venv):
-    En la terminal de VS Code escriba: python -m venv venv
+>En la terminal de VS Code escriba: python -m venv venv
 
 4. Activar el entorno virtual:
-    En la terminal de VS Code escriba: venv\Scripts\activate
-    En macOS o Linux: source venv/bin/activate
+>En la terminal de VS Code escriba: venv\Scripts\activate
+>En macOS o Linux: source venv/bin/activate
 
 5. Instalar las dependencias del proyecto:
-    pip install -r requirements.txt
+>pip install -r requirements.txt
 
 6. Aplicar migraciones a la base de datos:
-    python manage.py migrate
+>python manage.py migrate
 
 7. Ejecutar el servidor de desarrollo:
-    python manage.py runserver
+>python manage.py runserver
 
 8. Abrir en el navegador: http://127.0.0.1:8000/
 
