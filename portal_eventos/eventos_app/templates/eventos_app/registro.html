@@ -1,0 +1,17 @@
+{% extends 'eventos_app/base.html' %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Registro de nuevo usuario</h2>
+
+<form method="POST" class="mx-auto" style="max-width:400px;">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="text-center mt-3">
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+  </div>
+</form>
+
+<p class="text-center mt-3">
+  ¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.
+</p>
+{% endblock %}

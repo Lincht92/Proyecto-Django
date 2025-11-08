@@ -1,0 +1,69 @@
+{% extends 'eventos_app/base.html' %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Iniciar sesión</h2>
+
+<form method="POST" class="mx-auto" style="max-width:400px;">
+  {% csrf_token %}
+
+  <!-- Campo usuario -->
+  <div class="mb-3">
+    <label for="{{ form.username.id_for_label }}" class="form-label">Nombre de usuario:</label>
+    {{ form.username }}
+    {% if form.username.errors %}
+      <div class="form-text text-danger">
+        {% for err in form.username.errors %}{{ err }}{% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Campo contraseña -->
+  <div class="mb-3 position-relative">
+    <label for="{{ form.password.id_for_label }}" class="form-label">Contraseña:</label>
+    {{ form.password }}
+    {% if form.password.errors %}
+      <div class="form-text text-danger">
+        {% for err in form.password.errors %}{{ err }}{% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Burbuja para errores globales -->
+    {% if form.non_field_errors %}
+      <div class="position-absolute bg-danger text-white px-3 py-2 rounded shadow-sm"
+           style="top: 100%; left: 0; transform: translateY(6px); width: 100%; z-index: 10; font-size: 0.95em;">
+        {% for err in form.non_field_errors %}
+          {{ err }}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="text-center mt-4">
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+  </div>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Selecciona la burbuja de error (si existe)
+  const errorBubble = document.querySelector('.bg-danger.text-white');
+  
+  if (errorBubble) {
+    // Encuentra los campos de usuario y contraseña
+    const inputs = document.querySelectorAll('input[name="username"], input[name="password"]');
+    
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        // Oculta la burbuja cuando el usuario empiece a escribir
+        errorBubble.style.display = 'none';
+      });
+    });
+  }
+});
+</script>
+
+
+<p class="text-center mt-3">
+  ¿No tienes cuenta? <a href="{% url 'eventos_app:registro' %}">Regístrate aquí</a>.
+</p>
+{% endblock %}

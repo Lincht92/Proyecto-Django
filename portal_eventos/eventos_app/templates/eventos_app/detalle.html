@@ -1,0 +1,22 @@
+{% extends 'eventos_app/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h2>{{ evento.titulo }}</h2>
+    <p class="text-muted">{{ evento.fecha }} — {{ evento.ubicacion }}</p>
+    <p>{{ evento.descripcion }}</p>
+    <hr>
+    <p><strong>Creado por:</strong> {{ evento.creado_por.username }}</p>
+
+    {% if user == evento.creado_por or user.is_staff %}
+      <a href="{% url 'eventos_app:editar' evento.pk %}" class="btn btn-warning btn-sm">Editar</a>
+      <form action="{% url 'eventos_app:borrar' evento.pk %}" method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+      </form>
+    {% endif %}
+    <a href="{% url 'eventos_app:index' %}" class="btn btn-secondary btn-sm">Volver</a>
+  </div>
+</div>
+{% endblock %}
