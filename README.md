@@ -39,7 +39,7 @@ Aplicación web desarrollada con el framework **Django**, que permite:
 6. Configure el sistema de usuarios de Django para permitir registro, inicio y cierre de sesión.
 
 ##Instalación y configuración
-Sigua estos pasos para ejecutar el proyecto en su computadora:
+Siga estos pasos para ejecutar el proyecto en su computadora:
 
 1. Clonar el repositorio desde GitHub.
 >(O descargar el ZIP y extraerlo)
