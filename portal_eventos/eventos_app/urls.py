@@ -14,3 +14,8 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='eventos_app/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
+
+
+#<int:pk> captura el ID del evento desde la URL y lo pasa a la vista.
+#con esto podemos crearlo, editarlo o borrarlo
+
